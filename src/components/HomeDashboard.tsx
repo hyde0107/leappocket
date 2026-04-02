@@ -77,7 +77,7 @@ export function HomeDashboard() {
             </div>
             <div className="home-metric">
               <span className="home-metric-val">
-                {overall.distribution[0] + overall.distribution[1] + overall.distribution[2]}
+                {overall.weak}
               </span>
               <span className="home-metric-lbl">苦手</span>
             </div>

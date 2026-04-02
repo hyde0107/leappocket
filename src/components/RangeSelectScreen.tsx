@@ -192,7 +192,7 @@ export function RangeSelectScreen({ onBack, onTest, onCards, onWordList }: Props
               <div className="modal-stats">
                 <span>Lv均 {modalStats.count ? modalStats.avgLevel.toFixed(2) : "—"}</span>
                 <span>未習 {modalStats.unlearned}</span>
-                <span>苦手 {modalStats.distribution[0] + modalStats.distribution[1] + modalStats.distribution[2]}</span>
+                <span>苦手 {modalStats.weak}</span>
               </div>
             </div>
 
