@@ -28,7 +28,7 @@ export function aggregateProgress(
     sumLevel += level;
     distribution[level]++;
     if (level === 0) unlearned++;
-    if (level <= 2) weak++;
+    if (level > 0 && level <= 2) weak++;
   }
 
   const count = words.length;

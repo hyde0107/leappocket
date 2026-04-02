@@ -1683,3 +1683,105 @@ input, textarea { -webkit-user-select: auto; user-select: auto; }
     font-size: 0.75rem !important;
   }
 }
+
+
+/* Word Level Visibility Colors */
+:root {
+  --lv0-bg: rgba(239, 68, 68, 0.08);   /* Light red for unlearned */
+  --lv0-tag: #ef4444;
+  --lv12-bg: rgba(245, 158, 11, 0.08); /* Light orange for weak */
+  --lv12-tag: #f59e0b;
+  --lv34-bg: rgba(34, 197, 94, 0.08);  /* Light green for learned */
+  --lv34-tag: #16a34a;
+}
+
+.tile-row-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tile-list-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--accent-bright);
+  font-size: 1.25rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.tile-list-btn:active {
+  background: var(--surface-solid);
+  border-color: var(--accent-dim);
+}
+
+.word-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.word-list-row:last-child { border-bottom: none; }
+
+.word-list-row.lv0 { background: var(--lv0-bg); }
+.word-list-row.lv12 { background: var(--lv12-bg); }
+.word-list-row.lv34 { background: var(--lv34-bg); }
+
+.word-list-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.word-list-en {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.word-list-ja {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.word-list-side {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.level-tag {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: white;
+}
+
+.level-tag.lv0 { background: var(--lv0-tag); }
+.level-tag.lv12 { background: var(--lv12-tag); }
+.level-tag.lv34 { background: var(--lv34-tag); }
+
+.id-tag {
+  font-size: 0.7rem;
+  font-family: ui-monospace, monospace;
+  color: var(--muted);
+}

@@ -12,6 +12,7 @@ type Props = {
   onBack: () => void;
   onTest: (p: HomeLaunchTest) => void;
   onCards: (p: HomeLaunchCards) => void;
+  onWordList: (preset: RangePreset) => void;
 };
 
 function tileMeta(preset: RangePreset): { label: string; hint: string } {
@@ -35,7 +36,7 @@ function labelForPreset(preset: RangePreset): string {
   return `カスタム（${preset.startId}–${preset.endId}）`;
 }
 
-export function RangeSelectScreen({ onBack, onTest, onCards }: Props) {
+export function RangeSelectScreen({ onBack, onTest, onCards, onWordList }: Props) {
   const { getEntry } = useLearning();
   const tiles = useMemo(() => getRangeTileList(), []);
 
@@ -123,7 +124,18 @@ export function RangeSelectScreen({ onBack, onTest, onCards }: Props) {
         {tiles.map((t) => {
           const st = tileStats.get(t.id);
           return (
-            <li key={t.id} className="tile-row">
+            <li key={t.id} className="tile-row tile-row-wrap">
+              <button
+                type="button"
+                className="tile-list-btn"
+                onClick={() => {
+                  const p: RangePreset = t.type === "custom" ? { kind: "custom", startId: 1, endId: 100 } : t.preset;
+                  onWordList(p);
+                }}
+                title="単語レベル一覧を表示"
+              >
+                📋
+              </button>
               <button
                 type="button"
                 className="range-tile range-tile--rich"

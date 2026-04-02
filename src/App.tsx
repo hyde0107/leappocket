@@ -14,7 +14,8 @@ import { RangeSelectScreen } from "./components/RangeSelectScreen";
 import { TestScreen } from "./components/TestScreen";
 import { ResultScreen } from "./components/ResultScreen";
 import { CardView } from "./components/CardView";
-import type { CardsRouteState, ResultsRouteState, TestRouteState } from "./navigationState";
+import { WordListScreen } from "./components/WordListScreen";
+import type { CardsRouteState, ResultsRouteState, TestRouteState, WordListRouteState } from "./navigationState";
 
 /** 1画面＝1レイヤー */
 function Screen({ children }: { children: React.ReactNode }) {
@@ -48,6 +49,9 @@ function RangeSelectPage() {
         }
         onCards={(p) =>
           navigate("/cards", { state: { launch: p } satisfies CardsRouteState })
+        }
+        onWordList={(preset) =>
+          navigate("/list", { state: { preset } satisfies WordListRouteState })
         }
       />
     </Screen>
@@ -123,6 +127,25 @@ function CardsPage() {
   );
 }
 
+function WordListPage() {
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const preset = (state as Partial<WordListRouteState> | null)?.preset;
+
+  if (!preset) {
+    return <Navigate to="/ranges" replace />;
+  }
+
+  return (
+    <Screen>
+      <WordListScreen
+        preset={preset}
+        onBack={() => navigate("/ranges", { replace: true })}
+      />
+    </Screen>
+  );
+}
+
 export default function App() {
   return (
     <LearningProvider>
@@ -135,6 +158,7 @@ export default function App() {
             <Route path="/test" element={<TestPage />} />
             <Route path="/results" element={<ResultsPage />} />
             <Route path="/cards" element={<CardsPage />} />
+            <Route path="/list" element={<WordListPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
