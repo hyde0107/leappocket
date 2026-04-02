@@ -98,7 +98,7 @@ export function HomeDashboard() {
           </span>
           <span>
             <i className="dot weak" />
-            苦手 {overall.distribution[1] + overall.distribution[2]}
+            苦手 {overall.weak}
           </span>
           <span>
             <i className="dot learned" />

@@ -57,8 +57,8 @@ export function ProgressOverview({ getEntry }: Props) {
                 <td>{r.count}</td>
                 <td className="font-mono">{r.count ? r.p.avgLevel.toFixed(2) : "—"}</td>
                 <td>{r.p.unlearned}</td>
-                <td className={r.p.distribution[1] + r.p.distribution[2] > 0 ? "text-warn" : ""}>
-                  {r.p.distribution[1] + r.p.distribution[2]}
+                <td className={r.p.weak > 0 ? "text-warn" : ""}>
+                  {r.p.weak}
                 </td>
                 <td className="right font-bold text-accent">{r.count ? `${r.p.progressPercent.toFixed(0)}%` : "—"}</td>
               </tr>
@@ -88,9 +88,7 @@ export function ProgressOverview({ getEntry }: Props) {
                   <td>{r.count}</td>
                   <td>{r.count ? r.p.avgLevel.toFixed(2) : "—"}</td>
                   <td>{r.p.unlearned}</td>
-                  <td>
-                    {r.p.distribution[0] + r.p.distribution[1] + r.p.distribution[2]}
-                  </td>
+                  <td>{r.p.weak}</td>
                   <td>{r.count ? `${r.p.progressPercent.toFixed(1)}%` : "—"}</td>
                 </tr>
               ))}

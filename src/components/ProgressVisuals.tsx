@@ -106,7 +106,7 @@ export function RangeProgressRow({
       <div className="range-prow-meta small muted">
         <span>Lv均 {stats.count ? stats.avgLevel.toFixed(2) : "—"}</span>
         <span>未習 {stats.unlearned}</span>
-        <span>苦手 {stats.distribution[0] + stats.distribution[1] + stats.distribution[2]}</span>
+        <span>苦手 {stats.weak}</span>
         <span>習得 {stats.distribution[3] + stats.distribution[4]}</span>
       </div>
     </div>

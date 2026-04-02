@@ -10,7 +10,7 @@ type Props = {
 export function ProgressPanel({ title, words, getEntry }: Props) {
   const p = aggregateProgress(words, getEntry);
   const n = p.count;
-  const weakLe2 = p.distribution[0] + p.distribution[1] + p.distribution[2];
+  const weakLe2 = p.weak;
 
   if (n === 0) {
     return (
