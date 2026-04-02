@@ -1,1 +1,0 @@
-{"name":"LEAP - 本気の英単語アプリ","short_name":"LEAP","description":"本気で覚えるための高効率・オフライン英単語アプリ「LEAP」。AIがあなたの苦手を分析し、最適な順番で出題します。","start_url":"/","display":"standalone","background_color":"#0a0e18","theme_color":"#0a0e18","lang":"en","scope":"/","orientation":"portrait","icons":[{"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
